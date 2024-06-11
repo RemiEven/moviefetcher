@@ -1,23 +1,14 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/debian
 {
-	"name": "Java",
-	"image": "mcr.microsoft.com/devcontainers/java:1-21-bullseye",
+	"name": "Debian",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	"image": "mcr.microsoft.com/devcontainers/base:bullseye",
 	"features": {
-		"ghcr.io/devcontainers/features/java:1": {
-			"version": "none",
-			"installMaven": "true",
-			"installGradle": "false"
+		"ghcr.io/devcontainers/features/python:1": {
+			"installTools": true,
+			"installJupyterlab": true,
+			"version": "os-provided"
 		}
-	},
-	"customizations": {
-		"vscode": {
-			"settings": {
-				"java.server.launchMode": "Standard",
-				"redhat.telemetry.enabled": false,
-				"java.maven.downloadSources": true
-			},
-			"extensions": [
-				"vscjava.vscode-java-pack"
-			]
-		}
-	},
+	}
 }
