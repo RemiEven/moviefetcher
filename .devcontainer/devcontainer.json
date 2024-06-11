@@ -9,6 +9,21 @@
 			"installTools": true,
 			"installJupyterlab": true,
 			"version": "os-provided"
+		},
+		"ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
+			"packages": "ffmpeg"
+		}
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-toolsai.jupyter"
+			]
+		},
+		"codespaces": {
+			"openFiles": [
+				"mediapy_examples.ipynb"
+			]
 		}
 	}
 }
