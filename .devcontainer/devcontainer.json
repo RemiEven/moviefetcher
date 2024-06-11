@@ -7,5 +7,17 @@
 			"installMaven": "true",
 			"installGradle": "false"
 		}
-	}
+	},
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"java.server.launchMode": "Standard",
+				"redhat.telemetry.enabled": false,
+				"java.maven.downloadSources": true
+			},
+			"extensions": [
+				"vscjava.vscode-java-pack"
+			]
+		}
+	},
 }
