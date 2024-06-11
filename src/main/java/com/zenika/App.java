@@ -2,13 +2,23 @@ package com.zenika;
 
 import java.io.IOException;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
 public class App {
     public static void main(String[] args) throws IOException {
+        Movie movie = fetchMovie();
 
+        System.out.println(movie.title());
+        System.out.println(movie.releaseDate());
+        System.out.println("---");
+        System.out.println(movie.description());
+    }
+
+    public static Movie fetchMovie() throws IOException {
         OkHttpClient client = new OkHttpClient();
 
         Request request = new Request.Builder()
@@ -17,8 +27,8 @@ public class App {
 
         Response response = client.newCall(request).execute();
 
-        String s = new String(response.body().bytes());
+        ObjectMapper objectMapper = new ObjectMapper();
 
-        System.out.println(s);
+        return objectMapper.readValue(response.body().string(), Movie.class);
     }
 }
